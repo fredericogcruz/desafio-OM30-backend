@@ -47,15 +47,17 @@ RUN sudo apt-key add apt.gpg
 
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php7.list
 
-RUN sudo apt update
+RUN sudo apt-get update
 
-RUN sudo apt install -y php7.4 php7.4-cli php7.4-common
+RUN sudo apt-get install -y php7.4 php7.4-cli php7.4-common
 
-RUN apt install php7.4-curl zip unzip php7.4-xml php7.4-mbstring -y
+RUN apt-get install php7.4-curl zip unzip php7.4-xml php7.4-mbstring -y
 
 RUN apt-get install php7.4-pgsql -y
 
 RUN apt-get install postgresql-client -y 
+
+RUN apt-get install composer*
 
 RUN apt-get install nginx -y
 

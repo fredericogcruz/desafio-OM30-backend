@@ -44,7 +44,7 @@ services:
     volumes: 
       - db:/var/lib/postgresql/data
     networks:
-      - postgres-compose-network
+      - postgres-network
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -55,9 +55,9 @@ services:
     depends_on:
       - php73fpm_clinica
     networks:
-      - postgres-compose-network
+      - postgres-network
 networks: 
-  postgres-compose-network:
+  postgres-network:
     driver: bridge
 volumes:
   db:
