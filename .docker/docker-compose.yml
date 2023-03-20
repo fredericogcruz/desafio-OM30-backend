@@ -1,0 +1,47 @@
+version: '2.2'
+
+services:
+  db_teste:
+    container_name: db_teste
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=##teste123
+    ports:
+      - '5433:5432'
+    volumes:
+      - db_teste:/var/lib/postgresql_aval_destaque/data
+  php_73_fpm:
+    container_name: php_73_fpm
+    image: php71fpm:latest
+    volumes:
+      - .:/var/www/html
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=##teste123
+    depends_on:
+      - db_teste
+  api_:
+    container_name: avaliacao_destaque
+    image: 'avaliacao_destaque'
+    working_dir: /var/www/html
+    ports:
+      - 8081:80
+    volumes:
+      - .:/var/www/html
+    entrypoint: [ "/bin/sh" , "entrypoint.sh" ]
+    restart: always
+    links:
+      - db_teste
+      - php_73_fpm
+    depends_on:
+      - db_teste
+      - php_73_fpm
+    environment:
+      - APP_ENV_DOCKER=local
+    tty: true
+    command: [nginx, '-g', 'daemon off;']
+volumes:
+  db_teste:
+    driver: local
