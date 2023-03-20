@@ -1,30 +1,20 @@
 version: '2.2'
 
 services:
-  db_teste:
-    container_name: db_teste
-    image: postgres:latest
-    restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=##teste123
-    ports:
-      - '5433:5432'
-    volumes:
-      - db_teste:/var/lib/postgresql_aval_destaque/data
-  php_73_fpm:
-    container_name: php_73_fpm
-    image: php71fpm:latest
+  php73fpm_clinica:
+    container_name: php73fpm_clinica
+    image: php73fpm:latest
     volumes:
       - .:/var/www/html
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=##teste123
-    depends_on:
-      - db_teste
-  api_:
-    container_name: avaliacao_destaque
-    image: 'avaliacao_destaque'
+      - POSTGRES_PASSWORD=postgres
+    build:
+        context: ./.docker/dockerfile_php73fpm
+        dockerfile: ./Dockerfile
+  clinica:
+    container_name: clinica
+    image: 'clinica'
     working_dir: /var/www/html
     ports:
       - 8081:80
@@ -33,15 +23,42 @@ services:
     entrypoint: [ "/bin/sh" , "entrypoint.sh" ]
     restart: always
     links:
-      - db_teste
-      - php_73_fpm
+      - php73fpm_clinica
     depends_on:
-      - db_teste
-      - php_73_fpm
+      - php73fpm_clinica
     environment:
       - APP_ENV_DOCKER=local
     tty: true
     command: [nginx, '-g', 'daemon off;']
+    build:
+        context: ./.docker/dockerfile_nginx
+        dockerfile: ./Dockerfile
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "frederico.cruz@datacruz.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - php73fpm_clinica
+    networks:
+      - postgres-compose-network
+networks: 
+  postgres-compose-network:
+    driver: bridge
 volumes:
-  db_teste:
+  db:
     driver: local
