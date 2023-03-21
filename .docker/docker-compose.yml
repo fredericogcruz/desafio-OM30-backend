@@ -1,16 +1,16 @@
 version: '2.2'
 
 services:
-  php73fpm_clinica:
-    container_name: php73fpm_clinica
-    image: php73fpm:latest
+  php74fpm_clinica:
+    container_name: php74fpm_clinica
+    image: php74fpm:latest
     volumes:
       - .:/var/www/html
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     build:
-        context: ./.docker/dockerfile_php73fpm
+        context: ./.docker/dockerfile_php74fpm
         dockerfile: ./Dockerfile
   clinica:
     container_name: clinica
@@ -21,11 +21,10 @@ services:
     volumes:
       - .:/var/www/html
     entrypoint: [ "/bin/sh" , "entrypoint.sh" ]
-    restart: always
     links:
-      - php73fpm_clinica
+      - php74fpm_clinica
     depends_on:
-      - php73fpm_clinica
+      - php74fpm_clinica
     environment:
       - APP_ENV_DOCKER=local
     tty: true
@@ -53,7 +52,7 @@ services:
     ports:
       - "16543:80"
     depends_on:
-      - php73fpm_clinica
+      - php74fpm_clinica
     networks:
       - postgres-network
 networks: 

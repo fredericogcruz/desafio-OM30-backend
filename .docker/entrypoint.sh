@@ -7,19 +7,17 @@ echo " \033[01;31m # Copiando arquivo default para nginx...                     
 cp default /etc/nginx/sites-available/default
 
 
-
-echo " \033[01;31m # Setando permissões de arquivos... "
-chmod -R 775 /var/www/html
+chmod -R 777 /var/www/html
 
 
-
-DIRETORIO=/var/www/html/vendor
-if [-d "$DIRETORIO"]; then
-    echo "$DIRETORIO já existe."
+if [ -d "/var/www/html/vendor" ]; then
+    echo "Diretório vendor já existe!"
 else 
-    echo " \033[01;31m # Baixando composer.phar...                                              "
-    wget https://getcomposer.org/download/2.0.0/composer.phar /var/www/html
-
+    if [ ! -f "/var/www/html/composer.phar" ]; then
+        echo " \033[01;31m # Baixando composer.phar...                                              "
+        wget https://getcomposer.org/download/2.0.0/composer.phar /var/www/html
+    fi
+    
     echo " \033[01;31m # Setando permissões de arquivos... "
     chmod +x /var/www/html/composer.phar
 
@@ -27,6 +25,12 @@ else
     /var/www/html/composer.phar update --ignore-platform-reqs 
     php artisan key:generate
 fi
+
+
+
+echo " \033[01;31m # Setando permissões de arquivos... "
+chmod -R 775 /var/www/html
+chmod -R 777 /var/www/html/storage/
 
 
 echo " \033[01;33m###################################################################\033[01;33m"

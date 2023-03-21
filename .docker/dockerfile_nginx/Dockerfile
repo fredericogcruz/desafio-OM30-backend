@@ -57,7 +57,7 @@ RUN apt-get install php7.4-pgsql -y
 
 RUN apt-get install postgresql-client -y 
 
-RUN apt-get install composer*
+RUN apt-get install -y composer
 
 RUN apt-get install nginx -y
 
