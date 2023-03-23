@@ -7,14 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Desafio Back-end
+# Desafio Back-end
 
 ### Containerização Docker
 
-Partindo do princípio que o Docker e Docker-compose já estejam devidamente configurados na máquina, basta executar o seguinte comando: 
+Partindo do princípio que o Docker e Docker-compose já estejam devidamente instalados na máquina, basta executar o seguinte comando: 
 
 > docker-compose up --remove-orphans --force-recreate
 
- ### Para acessar a aplicacao >>>  http://localhost:8081/ 
-             |                                                                                                                 
- ### Para acessar PgAdmin >>>  http://localhost:16543/ 
+## CSRF_TOKEN
+
+### Para acessar a aplicacao >>>  http://localhost:8081/ 
+            |
+                                              
+### Para acessar PgAdmin >>>  http://localhost:16543/ 
