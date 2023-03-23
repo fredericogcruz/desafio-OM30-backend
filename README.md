@@ -13,5 +13,5 @@
 
 Partindo do princípio que o Docker e Docker-compose já estejam devidamente configurados na máquina, basta executar o seguinte comando: 
 
-> docker-compose up
+> docker-compose up --remove-orphans --force-recreate
 

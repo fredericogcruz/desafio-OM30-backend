@@ -13,7 +13,8 @@ class PacienteFactory extends Factory
             'idade' => $this->faker->numberBetween(13, 30),
             'sexo' => $this->faker->regexify('[MF]{1}'),
             'peso' => $this->faker->numberBetween(50, 140),
-            'cpf' => $this->faker->numberBetween(00000000000, 99999999999)
+            'cpf' => $this->faker->numberBetween(00000000000, 99999999999),
+            'endereco_id' => $this->faker->numberBetween(1, 50),
        ];
     }
 }

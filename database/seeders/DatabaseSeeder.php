@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Endereco::factory(50)->create();
         \App\Models\Paciente::factory(50)->create();
     }
 }
