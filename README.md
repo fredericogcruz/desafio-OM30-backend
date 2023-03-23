@@ -9,7 +9,6 @@
 
 ## Desafio Back-end
 
-
 # Containerização Docker
 
 Partindo do princípio que o Docker e Docker-compose já estejam devidamente configurados na máquina, basta executar o seguinte comando: 

@@ -12,6 +12,8 @@ services:
     build:
         context: ./.docker/dockerfile_php74fpm
         dockerfile: ./Dockerfile
+    networks:
+      - postgres-network
   clinica:
     container_name: clinica
     image: 'clinica'
@@ -32,6 +34,8 @@ services:
     build:
         context: ./.docker/dockerfile_nginx
         dockerfile: ./Dockerfile
+    networks:
+      - postgres-network
   db:
     image: postgres:14.1-alpine
     restart: always
