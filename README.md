@@ -9,9 +9,12 @@
 
 ## Desafio Back-end
 
-# Containerização Docker
+### Containerização Docker
 
 Partindo do princípio que o Docker e Docker-compose já estejam devidamente configurados na máquina, basta executar o seguinte comando: 
 
 > docker-compose up --remove-orphans --force-recreate
 
+ ### Para acessar a aplicacao >>>  http://localhost:8081/ 
+             |                                                                                                                 
+ ### Para acessar PgAdmin >>>  http://localhost:16543/ 
