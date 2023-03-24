@@ -34,8 +34,8 @@ Observação: Para ambiente de desenvolvimento, é sempre bom rodar com esses pa
 
 ## CSRF_TOKEN
 
-Para capturar o CSRF Token acesse http://localhost:8081/token
+Para capturar o CSRF Token acesse ## http://localhost:8081/token
 
-### Para acessar a aplicação >>> http://localhost:8081  
+Para acessar a aplicação >>> ## http://localhost:8081  
 
-### Para acessar PgAdmin >>>  http://localhost:16543
+Para acessar PgAdmin >>> ## http://localhost:16543
