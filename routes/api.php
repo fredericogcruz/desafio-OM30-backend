@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/* 
 Route::get('/api/pacientes/{?nome}/{?cpf}', function () {
     phpinfo();
 
     exit;
-});
+}); */

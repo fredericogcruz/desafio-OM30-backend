@@ -4,9 +4,8 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-interface TaskRepositoryInterface 
-{ 
+interface TaskRepositoryInterface
+{
     public function __construct(Model $model);
     public function store(array $data);
     public function getList();

@@ -26,7 +26,7 @@
 
 ### Containerização Docker
 
-Partindo do princípio que o Docker e Docker-compose já estejam devidamente instalados na máquina, basta executar o seguinte comando: 
+Partindo do princípio que o Docker e Docker-compose já estejam devidamente instalados na máquina, basta executar o seguinte comando para o Docker fazer build nas imagens e subida de containers: 
 
 > docker-compose up 
 
@@ -36,6 +36,6 @@ Observação: Para ambiente de desenvolvimento, é sempre bom rodar com esses pa
 
 Para capturar o CSRF Token acesse http://localhost:8081/token
 
-### Para acessar a aplicacao >>> http://localhost:8081  
+### Para acessar a aplicação >>> http://localhost:8081  
 
 ### Para acessar PgAdmin >>>  http://localhost:16543

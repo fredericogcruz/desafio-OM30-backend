@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Repositories\TaskRepositoryInterface;
 use Illuminate\Http\Request;
 
-class TaskService
+class TaskController extends Controller
 {
     protected $repo;
 
