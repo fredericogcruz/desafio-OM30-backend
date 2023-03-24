@@ -8,6 +8,9 @@
     <a href="https://br2.php.net/">
         <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="Build Status">
     </a>
+    
+    </br>
+    
     <a href="https://travis-ci.org/laravel/framework">
         <img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
     </a>
