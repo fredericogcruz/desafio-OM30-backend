@@ -20,7 +20,7 @@ class Paciente extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    public $fillable = [
         'nome',
         'idade',
         'sexo',

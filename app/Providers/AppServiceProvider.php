@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Paciente;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\PacienteRepositoryEloquent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('TaskRepositoryInterface', 'TaskRepositoryEloquent');
+        $this->app->bind('App\Repositories\PacienteRepositoryInterface', 'PacienteRepositoryEloquent');
+        $this->app->bind('App\Repositories\PacienteRepositoryInterface', function(){
+            return new PacienteRepositoryEloquent(new Paciente());
+        });
     }
 
     /**

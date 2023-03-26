@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Repositories\PacienteRepositoryInterface;
 
-
-class TaskRepositoryEloquent implements TaskRepositoryInterface
+class PacienteRepositoryEloquent implements PacienteRepositoryInterface
 {
     protected $model;
 
@@ -13,12 +13,12 @@ class TaskRepositoryEloquent implements TaskRepositoryInterface
     {
         $this->model = $model;
     }
-    
+
     public function store(array $data)
     {
         $this->model->create($data);
     }
-    
+
     public function getList()
     {
         return $this->model->all();
@@ -34,7 +34,8 @@ class TaskRepositoryEloquent implements TaskRepositoryInterface
         return $this->model->find($id)->update($data);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         return $this->model->find($id)->delete();
     }
 }

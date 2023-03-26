@@ -3,7 +3,9 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
 use App\Repositories\TaskRepositoryInterface;
+
 
 class TaskService implements TaskRepositoryInterface
 {
@@ -13,12 +15,12 @@ class TaskService implements TaskRepositoryInterface
     {
         $this->repo = $repo;
     }
-
+    
     public function store(array $data)
     {
         $this->repo->store($data);
     }
-
+    
     public function getList()
     {
         return $this->repo->getList();
@@ -34,8 +36,7 @@ class TaskService implements TaskRepositoryInterface
         return $this->repo->update($data, $id);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         return $this->repo->destroy($id);
     }
 }

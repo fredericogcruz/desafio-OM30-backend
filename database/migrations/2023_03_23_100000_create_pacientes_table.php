@@ -20,7 +20,7 @@ class CreatePacientesTable extends Migration
             $table->char('sexo');
             $table->integer('peso');
             $table->string('cpf');
-            $table->integer('endereco_id');
+            $table->integer('endereco_id')->nullable();;
             $table->foreign('endereco_id')->references('id')->on('enderecos');
             $table->timestamp('last_used_at')->nullable();
             $table->timestamps();

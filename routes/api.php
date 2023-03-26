@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-/* 
-Route::get('/api/pacientes/{?nome}/{?cpf}', function () {
-    phpinfo();
 
-    exit;
-}); */
+
+Route::post('/paciente', [PacienteController::class, 'store'])->middleware('api');
+Route::get('/pacientes', [PacienteController::class, 'getList'])->middleware('api');
+
+
+
+

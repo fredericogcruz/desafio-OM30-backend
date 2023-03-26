@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-interface TaskRepositoryInterface
+interface PacienteRepositoryInterface
 {
     public function __construct(Model $model);
     public function store(array $data);

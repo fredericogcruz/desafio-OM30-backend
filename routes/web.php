@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/token', function () {  
-    echo "CSRF_TOKEN: " . csrf_token();
+Route::get('/', function () {  
+    echo csrf_token();
 });
 
 
-Route::get('/tasks', [TaskController::class, 'getList']);
-
+Route::get('/token', function () {  
+    echo csrf_token();
+});
 
 
