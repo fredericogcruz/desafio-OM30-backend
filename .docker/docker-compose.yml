@@ -37,6 +37,7 @@ services:
     networks:
       - postgres-network
   db:
+    container_name: db_clinica
     image: postgres:14.1-alpine
     restart: always
     environment:

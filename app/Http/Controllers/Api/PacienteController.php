@@ -56,6 +56,6 @@ class PacienteController extends Controller
 
     public function destroy($id)
     {
-        return $this->repo->get($id)->destroy();
+        return $this->repo->get($id)->destroy($id);
     }
 }

@@ -51,7 +51,7 @@ LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=pgsql
-DB_HOST=desafio-om30_db_1
+DB_HOST=db_clinica
 DB_PORT=5432
 DB_DATABASE=postgres
 DB_USERNAME=postgres
